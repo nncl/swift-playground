@@ -38,6 +38,6 @@ student = ("Dunha", 99, 1)
 print(student.0)
 print(student.age)
 
-// Array
+// Arrays
 
 

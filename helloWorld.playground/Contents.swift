@@ -149,11 +149,18 @@ let userClone = user ?? Person(name:"Cauê Almeida") // kind of ternary operator
 // prefix - before
 // postfix - after
 
-/* It works but does not right now
-infix operator +
+// It works but does not right now
+infix operator + {} // newer swift we do not need these {}
 func + (left: Int, right: Int) -> Int {
     return left * right
 }
 
 print(9+9)
+
+infix operator >-< {}
+func >-< (left: Int, right: Int) -> Int {
+    return left * right
+}
+
+print(9>-<9)
 

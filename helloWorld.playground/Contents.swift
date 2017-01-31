@@ -78,7 +78,7 @@ print(firstLetterArray)
 // ## Swift Optionals
 
 var test: Double // cannot do this
-var test2: Double? // means this variable is optional, so this var is an Double Optional
+var test2: Double? // means that this variable is optional, so this var is an Double Optional
 
 test2 = 29
 print(test2)
@@ -133,7 +133,27 @@ print(phrase)
 var user = Person?
 user = Person(name: "Cauê")
 
-print(user?.sayName())
+user?.sayName()
+
+let userClone = user ?? Person(name:"Cauê Almeida") // kind of ternary operator
 */
 
+// # Operators
+// We can create our OWN operators, and we CAN modify already existent, such as + turns out into *. GREATER POWER == GREATER RESPONSABILITIES
+
+// Pre & Post sufix
+// !true = not - prefix
+
+// Creating operator
+//infix - between two numbers
+// prefix - before
+// postfix - after
+
+/* It works but does not right now
+infix operator +
+func + (left: Int, right: Int) -> Int {
+    return left * right
+}
+
+print(9+9)
 

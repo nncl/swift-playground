@@ -110,6 +110,7 @@ if test2 != nil {
 
 class Person {
     var name : String
+    var email : String! // do not do this, just if you know it's certain, Implicit Unwrapper Optional
     init(name: String){
         self.name = name
     }

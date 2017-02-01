@@ -167,3 +167,215 @@ print(9>-<9)
 */
 
 
+// ======================
+// CLASS 2 = DICTIONARIES
+// ======================
+
+// OR states: [String: String] = [
+var states = [
+    "SP" : "São Paulo",
+    "PR" : "Paraná",
+    "SC" : "Santa Catarina",
+    "RS" : "Rio Grande do Sul"
+]
+
+// Empty - [key type, value type]
+var list : [String: Int] = [:]
+
+// Getting item from dictionary
+let prName = states["PR"]
+
+// Optional binding
+if let spName = states["SP"] {
+    print(spName)
+}
+
+// Remove item from dictionary
+states["RS"] = nil
+
+// Count
+states.count
+
+// Iterating dictionary
+
+for state in states {
+    print(state) // damn it's a tuple
+}
+
+for (uf, name) in states {
+    print(uf, name) // damn it's a tuple
+}
+
+// Decomposuing touple
+
+let address = ("Avenue", "Paulista", 1000, "7th Floor")
+print(address)
+
+let (type, street, number, complement) = address
+print(street)
+
+// What if we want just street and complement??
+let (_, street2, _, complement2) = address
+print(complement2)
+
+// ======================
+// Conditionals
+// ======================
+
+// if/else statement
+let grade = 10,
+    climate = 0;
+
+if grade >= 10 {
+    print("Gotcha bro")
+} else if (grade < 10 && grade > 2) {
+    print("Kind of dough")
+} else {
+    print("Ooooops! Keep it simple stupid")
+}
+
+grade == 10 ? print("Yeap") : print("Errr")
+
+// ======================
+// Switch
+// ======================
+
+let letter = "a";
+switch letter {
+case "a":
+    print("Vowel")
+case "e":
+    print("Vowel")
+case "i":
+    print("Vowel")
+case "o":
+    print("Vowel")
+case "u":
+    print("Vowel")
+default:
+    print("Consoant")
+}
+
+let letter2 = "c";
+switch letter2 {
+case "a","e","i","o","u":
+    print("Vowel")
+default:
+    print("Consoant")
+}
+
+// Ranges
+let speed: Double = 100.0
+switch speed {
+case 0.0..<20.0: // til 19.99999, does not include 20
+    print("1st")
+case 20.0..<40.0:
+    print("2nd")
+case 40.0..<60.0:
+    print("3rd")
+default:
+    print("Death")
+}
+
+// ======================
+// Flow Control - Loop
+// ======================
+
+var cars = [
+    "Porsche",
+    "Audi",
+    "BMW",
+    "Jaguar",
+    "Ferrari"
+]
+
+for car in cars {
+    print(car)
+}
+
+// Enumerate - as a tuple - each array's element
+for car in cars.enumerated() {
+    print(car, car.0, car.1)
+}
+
+for (index, car) in cars.enumerated() {
+    print(index, car)
+}
+
+// FOR IN in ranges
+
+for value in 1...19 {
+    value // check right side graphic
+    print(value)
+}
+
+for index in stride(from: 0, to: 100, by: 3) {
+    index
+}
+
+// ======================
+// While
+// ======================
+
+var count = 0;
+while count > 19 {
+    print(count)
+    count+=1
+}
+
+repeat {
+    count -= 1
+    print(count)
+} while count > 1
+
+// ======================
+// Enum
+// ======================
+
+enum Compass {
+    case north
+    case south
+    case east
+    case west
+}
+
+// Adding values for an Enum: raw type
+
+enum weekDays: String {
+    case sunday
+    case monday = "Segunda-feira"
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
+}
+
+print(weekDays.sunday.rawValue)
+print(weekDays.monday.rawValue)
+
+// OR
+
+enum Months {
+    case january, february, march, april, may, jun, july, august, september, october, november, december
+}
+
+enum MonthsEnumerated: Int {
+    case january = 1, february, march, april, may, jun, july, august, september, october, november, december
+}
+
+print(MonthsEnumerated.november.rawValue) // 11 \o/
+
+let sunday = weekDays(rawValue: "Domingo") // nil
+
+if let monday = weekDays(rawValue: "Segunda-feira") {
+    print(monday) // OK
+}
+
+
+
+
+
+
+
+

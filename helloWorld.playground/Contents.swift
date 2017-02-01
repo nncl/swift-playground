@@ -53,13 +53,14 @@ grades.append(7)
 //grades.remove(at: 2)
 
 // Order an array
+/*
 let arrInt = [33,45,2,7,19,29,99,0,6]
 arrInt.sort()
 
 let arrStr = ["Cauê", "Anna", "Day"]
 arrStr.sort()
 //arrStr.sort(by: >)
-
+*/
 let arrTuple = [
     ("Cauê", 22),
     ("Johnior", 33),
@@ -72,8 +73,8 @@ let arrTuple = [
 // Define a strategy on how to order it, by what field. Not closure yet hehe
 // arrTuple.sort(by:{$0.0 < $1.0}) // Always earlier items need to be lower than the next one, this is our strategy. Functional Programming
 
-let firstLetterArray = arrStr.map({String($0.characters.first!)}) // $0 = array item. ! = same as toString()
-print(firstLetterArray)
+//let firstLetterArray = arrStr.map({String($0.characters.first!)}) // $0 = array item. ! = same as toString()
+//print(firstLetterArray)
 
 // ## Swift Optionals
 
@@ -81,7 +82,7 @@ var test: Double // cannot do this
 var test2: Double? // means that this variable is optional, so this var is an Double Optional
 
 test2 = 29
-print(test2)
+// print(test2)
 print(test2!) // Desembrulhando o optional - Modo VIDA LOKA, pq não verifica se tem valor antes de desembrulhar
 
 // Use Optional Binding instead
@@ -149,7 +150,7 @@ let userClone = user ?? Person(name:"Cauê Almeida") // kind of ternary operator
 // prefix - before
 // postfix - after
 
-// It works but does not right now
+/* It works but does not right now
 infix operator + {} // newer swift we do not need these {}
 func + (left: Int, right: Int) -> Int {
     return left * right
@@ -163,4 +164,6 @@ func >-< (left: Int, right: Int) -> Int {
 }
 
 print(9>-<9)
+*/
+
 

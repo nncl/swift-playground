@@ -1,3 +1,5 @@
 # Playground
 
-Just playing it.
+Just playing with.
+
+Pay attention on the comments through the code. Seriously.

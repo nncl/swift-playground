@@ -71,7 +71,7 @@ let arrTuple = [
 ]
 
 // Define a strategy on how to order it, by what field. Not closure yet hehe
-// arrTuple.sort(by:{$0.0 < $1.0}) // Always earlier items need to be lower than the next one, this is our strategy. Functional Programming
+// arrTuple.sort(by:{$0.0 < $1.0}) // Always earlier items need to be lower than the next one, this is our =tegy. Functional Programming
 
 //let firstLetterArray = arrStr.map({String($0.characters.first!)}) // $0 = array item. ! = same as toString()
 //print(firstLetterArray)

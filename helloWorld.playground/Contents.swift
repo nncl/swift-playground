@@ -556,7 +556,12 @@ applyOperation(a: 22, b: 10, operation: {$0 % $1}) // 2
 
 applyOperation(a: 22, b: 10, operation: %) // 2
 
+// REDUCE, as well as JS ES6
+let ages = [1,2,3,4,5,6,7,8,9,0]
+// Initial value, first/earlier item, next item
+let totalAges = ages.reduce(0, {$0 + $1})
 
+print(totalAges / ages.count)
 
 
 

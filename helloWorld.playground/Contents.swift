@@ -20,6 +20,8 @@
  String, Double. Float, Int, UInt...
 */
 
+/*
+
 let sentence = "Hello World" // cannot add new content cause it's constant
 //let sentence : String = "Hello World"
 
@@ -371,6 +373,191 @@ let sunday = weekDays(rawValue: "Domingo") // nil
 if let monday = weekDays(rawValue: "Segunda-feira") {
     print(monday) // OK
 }
+*/
+// ======================
+// Functions
+// ======================
+
+import Foundation // to get more methods from earlier versions
+
+pow(2, 3) // 8 - elevar
+pow(64, 0.5) // 8 - raíz quadrada
+sqrt(64) // 8
+abs(-9) // 9 - absolute
+round(3.55) // 4
+floor(3.99) // to down
+ceil(2.01) // to up
+
+// Working w/ random numbers
+
+arc4random() // random number
+arc4random_uniform(10) // uiint 32 from 0 to 9 :)
+
+// Exercise
+infix operator >-<
+func >-< (left: UInt32, right: UInt32) -> [Int] {
+    var numbers: [Int] = []
+    while UInt32(numbers.count) < left {
+        
+        let randomNumber = Int(arc4random_uniform(right) + 1) // cause until right -1
+        if !numbers.contains(randomNumber) {
+            numbers.append(randomNumber)
+        }
+        
+    }
+    return numbers.sorted()
+}
+
+6>-<60
+
+// Creating uor own functions
+func test() -> Void {
+    print("Our 1st function")
+}
+
+test()
+
+func say(sentence: String) {
+    print(sentence)
+}
+
+say(sentence: "Hello World")
+
+/*
+func say(sentence: String, to: String) {
+    print(sentence, to)
+}
+
+say(sentence: "Hello World", to: "Cauê")
+ */
+
+func say(sentence phrase: String, to name: String) {
+    print(phrase, name)
+}
+
+say(sentence: "Hello World", to: "Cauê")
+
+// Use _ to avoid adding param name when calling a function
+func sum (_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+print(sum(1,1))
+
+// Sum a number w/ to many others
+
+func sumMany(_ a: Int, withValues: Int...) -> Int {
+    var result = a
+    
+    for value in withValues {
+        result += value
+    }
+    
+    return result
+}
+
+sumMany(1, withValues: 1,2)
+
+// Returns more than one value: tuple
+
+func decodeStudent (_ data: String) -> (name: String, age: Int)? {
+    let student = data.components(separatedBy: ";")
+    // let name = student.name It returns an optional, so guard
+    // Desembrulha se existir, senão retorna nulo
+    guard let name = student.first else {return nil}
+    guard let ageStr = student.last, let age = Int(ageStr) else {return nil}
+    
+    return (name, age)
+}
+
+let student = decodeStudent("Cauê;22")
+print(student!) // Crazy motherfucker
+print(student!.name)
+print(student!.age)
+
+// Functions w/ others functions as parameters
+func add (a: Int, b: Int) -> Int {
+    return a + b
+}
+
+func subtract (a: Int, b: Int) -> Int {
+    return a - b
+}
+
+func multiply (a: Int, b: Int) -> Int {
+    return a * b
+}
+
+func divide (a: Int, b: Int) -> Int {
+    return a / b
+}
+
+typealias Operation = (Int, Int) -> Int
+
+func applyOperation (a: Int, b: Int, operation: Operation) -> Int {
+    return operation(a, b)
+}
+
+print(applyOperation(a: 1, b: 1, operation: add))
+
+// Returns a function with that name
+func getOperation (_ name: String) -> Operation {
+    switch name {
+    case "-":
+        return subtract
+    case "*":
+        return multiply
+    case "/":
+        return divide
+    default:
+        return add
+    }
+}
+
+let op = getOperation("*")
+print(op(9,9))
+
+// ======================
+// Closures
+// Like anonym functions, functions not declared yet
+/*
+ * syntax:
+ * {(parameter: Type, parameter2: Type)-> ReturnType in
+    code1
+    code2
+    code3
+    return value
+    }
+ */
+// ======================
+
+applyOperation(a: 22, b: 10, operation: {(value: Int, value2: Int) -> Int in
+    return value % value2
+}) // 2
+
+applyOperation(a: 22, b: 10, operation: {(value, value2) -> Int in
+    return value % value2
+}) // 2
+
+applyOperation(a: 22, b: 10, operation: {value, value2 -> Int in
+    return value % value2
+}) // 2
+
+// It's too typed, so...
+applyOperation(a: 22, b: 10, operation: {value, value2 in
+    return value % value2
+}) // 2
+
+applyOperation(a: 22, b: 10, operation: {
+    return $0 % $1
+}) // 2
+
+applyOperation(a: 22, b: 10, operation: {$0 % $1}) // 2
+
+applyOperation(a: 22, b: 10, operation: %) // 2
+
+
+
 
 
 

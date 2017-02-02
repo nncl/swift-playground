@@ -563,9 +563,33 @@ let totalAges = ages.reduce(0, {$0 + $1})
 
 print(totalAges / ages.count)
 
+// ======================
+// Handling Errors
+// ======================
 
+enum AccessError : String, Error {
+    case wrongUsername = "Invalid username"
+    case wrongPassword = "Invalid password"
+}
 
+func signIn (username: String, password: String) throws -> Void {
+    let validUsername = "nncl"
+    let validPassword = "qwerty1234"
+    
+    if username != validUsername {
+        throw AccessError.wrongUsername
+    } else if password != validPassword {
+        throw AccessError.wrongPassword
+    } else {
+        print("Awesomeness")
+    }
+}
 
+do {
+    try signIn(username: "@caue", password: "123")
+} catch {
+    error
+}
 
 
 

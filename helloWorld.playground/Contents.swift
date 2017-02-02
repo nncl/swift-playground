@@ -587,8 +587,23 @@ func signIn (username: String, password: String) throws -> Void {
 
 do {
     try signIn(username: "@caue", password: "123")
+} catch AccessError.wrongPassword {
+    print("Invalid password")
+} catch AccessError.wrongUsername {
+    print("Invalid username")
+}
+
+// ! = can be never reached, so we guarantee it
+do {
+    try signIn(username: "nncl", password: "123")
 } catch {
-    error
+    print((error as! AccessError.RawValue))
+    // print((error as! AccessError.localizedDescription))
+    switch error as! AccessError {
+    case .wrongUsername:
+        print("Invalid username")
+    case .wrongPassword:
+        print("Invalid password")
 }
 
 
